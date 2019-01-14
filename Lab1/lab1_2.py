@@ -8,6 +8,7 @@ Created on Thu Jan 10 15:09:46 2019
 import numpy as np
 import matplotlib.pyplot as plt
 
+#Cell edge grid
 N=100
 a=0
 b=np.pi
@@ -17,6 +18,7 @@ plt.plot(x,np.sin(x)*np.sinh(x))
 plt.show()
 print("there are {:d} gridpoints and cells in a cell edged grid".format(len(x)))
 
+#cell centerd grid
 x2=np.arange(1/100,2,2/100)
 y2=np.cos(x2)
 plt.plot(x2,y2)
@@ -26,6 +28,7 @@ print("Area under the curve is {:5.5f}".format(area))
 print("Which compares pretty well to Sin(2)={:5.5f}".format(np.sin(2)))
 area1=sum(np.cos(x))*h
 
+#cell centered grid with ghost points
 step=b/1000
 x3=np.arange(-step/2,b/2+step,step)
 y3=np.sin(x3)
