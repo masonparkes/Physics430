@@ -2,7 +2,7 @@ import scipy.special as sc
 import math
 
 
-for N in [300]:
+for N in [50]:
 
     a=0
     b=2

@@ -6,6 +6,8 @@ by some number, you'd have to take the sine of it, and you can't just do that
 """
 #%%
 #P2.5b
+import numpy as np
+import matplotlib.pyplot as plt
 maxerr=1
 passes=0
 yguess=np.zeros_like(x)
