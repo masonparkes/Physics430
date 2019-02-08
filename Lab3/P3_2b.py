@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import Lab3Funcs as l3f
 import numpy as np
 
-wplot=np.arange(400,1900,2)
+wplot=np.arange(400,1900,.1)
 maxamps=np.zeros(len(wplot))
 T=127
 L=1.2

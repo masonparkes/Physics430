@@ -16,13 +16,13 @@ for i in range(1,N-1):
     A[i][i-1]=1/(h**2)
     A[i][i+1]=1/(h**2)
 A[0][0]=1
-A[N-1][N-1]=3/(2*h)
+A[N-1][N-1]=3/(2*h)-2
 A[N-1][N-2]=-2/h
 A[N-1][N-3]=1/(2*h)
 #%% Make the B matrix
 B=np.identity(N)
 B[0][0]=0
-B[N-1][N-1]=2
+B[N-1][N-1]=0
 #%% Solve the eigenvalue problem
 vals,vecs=la.eig(A,B)
 
@@ -36,6 +36,9 @@ vecs=vecs[:,ind]
 
 for i in range(7):
     plt.clf()
+    y=vecs[:,i]
+    deriv=(1/(2*h))*y[-3]-(2/h)*y[-2]+(3/(2*h))*y[-1]
+    print(deriv-2*y[-1])
     plt.plot(x,vecs[:,i],'g')
     amp1=max(vecs[:,i])
     amp2=min(vecs[:,i])
@@ -48,4 +51,4 @@ for i in range(7):
     plt.xlabel('x')
     #plt.ylim([-0.002, 0.002])
     plt.draw()
-    plt.pause(1)
+    plt.pause(3)

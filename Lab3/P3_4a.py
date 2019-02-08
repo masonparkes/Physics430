@@ -34,16 +34,19 @@ ind= np.argsort(w)
 w=w[ind]
 vecs=vecs[:,ind]
 
-for i in range(N-1):
+for i in range(3):
     plt.clf()
     plt.plot(x,vecs[:,i],'g')
     amp1=max(vecs[:,i])
     amp2=min(vecs[:,i])
-    if abs(amp1)>abs(amp2):
+    """
+    amp=0
+    if abs(amp1)>=abs(amp2):
         amp=amp1
     elif abs(amp2)>abs(amp2):
         amp=amp2
     plt.plot(x,amp*np.sin((i*2+1)*np.pi*x/(2*L)),'y')
+    """
     plt.title(w[i])
     plt.xlabel('x')
     #plt.ylim([-0.002, 0.002])

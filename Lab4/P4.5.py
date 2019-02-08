@@ -41,4 +41,4 @@ for i in [0,2,3,4,5]:
     plt.title(newvals[i])
     plt.xlabel('x')
     plt.draw()
-    plt.pause(1)
+    plt.pause(2)

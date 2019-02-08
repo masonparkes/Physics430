@@ -34,12 +34,12 @@ ind= np.argsort(newvals)
 newvals=newvals[ind]
 vecs=vecs[:,ind]
 
-for i in [0,2,3,4,5,6]:
+for i in [1]:
     plt.clf()
     plt.plot(x,vecs[:,i]**2,'g')
     
     plt.title(newvals[i])
     plt.xlabel('x')
     plt.draw()
-    plt.pause(1)
+    plt.pause()
     

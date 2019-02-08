@@ -3,7 +3,7 @@ import scipy.linalg as la
 import matplotlib.pyplot as plt
 import scipy.special as sp
 
-N=150;
+N=30;
 L=2
 h=L/N
 g=9.8
@@ -42,11 +42,14 @@ for i in range(4):
     plt.title(w[i])
     plt.xlabel('x')
     plt.draw()
-    plt.pause(.1)
+    plt.pause(1)
     
 wcalc=sp.jn_zeros(0,N+2)*np.sqrt(g/(4*L))
 pcterror=(w-wcalc)/wcalc*100
 print("my w\tw_calc\t%error")
 for i in range(N+2):
     print(f'{w[i]:.3f}\t{wcalc[i]:.3f}\t{pcterror[i]:.3f}')
+plt.clf()
 plt.plot(range(N+2),pcterror)
+
+
