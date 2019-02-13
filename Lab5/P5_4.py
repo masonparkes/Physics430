@@ -64,5 +64,5 @@ while T<tmax:
 plt.clf()
 m=np.linspace(0,tmax,int(tmax/t)+1)
 plt.plot(m,amps)
-plt.plot(m,0.00125*np.exp(-g*m/2),'r*')
+plt.plot(m,0.00125*np.exp(-g*m/2),'r')
 plt.title("Look at that!")
