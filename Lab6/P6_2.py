@@ -4,11 +4,11 @@ from matplotlib import cm
 import numpy as np
 
 # make 1D x and y arrays
-Nx=30
+Nx=100
 a=-5
 b=5
 x, hx=np.linspace(a,b,Nx,retstep=True)
-Ny=30
+Ny=100
 c=-5
 d=5
 y, hy=np.linspace(c,d,Ny,retstep=True)
@@ -44,7 +44,7 @@ Z[:,0]=0#this sets a vertical row
     
 tfinal=10
 c=np.sqrt(sig/mu)
-tau=0.02#0.1*hx/c
+tau=0.1*hx/c
 t=np.arange(0,tfinal,tau)
 skip=10
 
@@ -52,7 +52,7 @@ skip=10
 Znew=np.zeros_like(Z)
 Zold=np.zeros_like(Z)
 
-Zold[1:-2,1:-2]=-tau*Vinitial[1:-2,1:-2]+Z[1:-2,1:-2]+(sig*tau**2/(2*mu))*((Z[2:-1,1:-2]-2*Z[1:-2,1:-2]+Z[2:-1,1:-2])/hx**2+(Z[1:-2,2:-1]-2*Z[1:-2,1:-2]+Z[1:-2,2:-1])/hy**2)
+Zold[1:-1,1:-1]=-tau*Vinitial[1:-1,1:-1]+Z[1:-1,1:-1]+(sig*tau**2/(2*mu))*((Z[2:,1:-1]-2*Z[1:-1,1:-1]+Z[0:-2,1:-1])/hx**2+(Z[1:-1,2:]-2*Z[1:-1,1:-1]+Z[1:-1,0:-2])/hy**2)
 
 #plt.clf()
 #ax=fig.gca(projection='3d')
@@ -72,7 +72,7 @@ for m in range(len(t)):
     
     middle[m]=Z[int(Nx/2),int(Ny/2)]
     
-    Znew[1:-2,1:-2]=2*Z[1:-2,1:-2]-Zold[1:-2,1:-2]+(sig/mu)*(tau**2)*((Z[2:-1,1:-2]-2*Z[1:-2,1:-2]+Z[0:-3,1:-2])/hx**2+(Z[1:-2,2:-1]-2*Z[1:-2,1:-2]+Z[1:-2,0:-3])/hy**2)
+    Znew[1:-1,1:-1]=2*Z[1:-1,1:-1]-Zold[1:-1,1:-1]+(sig/mu)*(tau**2)*((Z[2:,1:-1]-2*Z[1:-1,1:-1]+Z[0:-2,1:-1])/hx**2+(Z[1:-1,2:]-2*Z[1:-1,1:-1]+Z[1:-1,0:-2])/hy**2)
     
     Znew[0,:]=0#this sets horizontal row
     Znew[-1,:]=0#this sets horizontal row

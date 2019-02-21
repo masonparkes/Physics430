@@ -5,12 +5,12 @@ import numpy as np
 
 # make 1D x and y arrays
 Nx=300
-a=-1.4
-b=1.4
+a=0
+b=2
 x, hx=np.linspace(a,b,Nx,retstep=True)
 Ny=300
-c=-1.4
-d=1.4
+c=-1
+d=3
 y, hy=np.linspace(c,d,Ny,retstep=True)
 
 #Make the 2D Meshgrid
