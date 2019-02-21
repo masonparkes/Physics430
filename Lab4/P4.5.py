@@ -17,12 +17,12 @@ for i in range(1,N+1):
     A[i][i+1]=-1/(2*h**2)
 A[0][0]=1/2
 A[0][1]=1/2
-A[N+1][N+1]=1/2
-A[N+1][N]=1/2
+A[-1][-1]=1/2
+A[-1][-2]=1/2
 #%% Make the B matrix
 B=np.identity(N+2)
 B[0][0]=0
-B[N-1][N-1]=0
+B[-1][-1]=0
 
 vals,vecs=la.eig(A,B)
 
