@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 tmax=20
-tau=2.1
+tau=.1
 
 t=np.arange(0,tmax+tau,tau)
 
@@ -16,4 +16,6 @@ for n in range(N-1):
 
 plt.clf()
 plt.plot(t,y)
+plt.plot(t,np.exp(-t))
+
     

@@ -3,7 +3,7 @@ import scipy.linalg as la
 import matplotlib.pyplot as plt
 import scipy.special as sp
 
-N=50;
+N=20;
 L=3
 D=2
 start=0
@@ -21,7 +21,7 @@ T=np.sin(np.pi*x/L)
 #t=0.2*h/c
 #C=.5034
 C=15
-tau=.1
+tau=C*(h**2)/D
 #t=2*h/c
 
 
@@ -34,9 +34,9 @@ for i in range(1,N+1):
     B[i,i-1]=1
     B[i,i]=(2*h**2)/(tau*D)-2
     B[i,i+1]=1
-A[0,0]=0.5;
+A[0,0]=-0.5;
 A[0,1]=0.5;
-A[-1,-1]=0.5;
+A[-1,-1]=-0.5;
 A[-1,-2]=0.5
 
 j=0
@@ -59,9 +59,6 @@ while t<tmax:
     if j%step==0:
         plt.clf()
         plt.plot(x,T,'b*')
-        a=np.pi/L
-        exact=np.sin(a*x)*np.exp(-D*t*a**2)
-        plt.plot(x,exact,'r-')
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title('time-{:1.3f}'.format(t))
@@ -71,9 +68,6 @@ while t<tmax:
         plt.pause(0.1)
 plt.clf()
 plt.plot(x,T,'b*')
-a=np.pi/L
-exact=np.sin(a*x)*np.exp(-D*t*a**2)
-plt.plot(x,exact,'r-')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.title('time-{:1.3f}'.format(t))

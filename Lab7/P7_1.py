@@ -5,7 +5,7 @@ import scipy.special as sp
 
 N=80;
 L=3
-D=2
+D=20
 start=0
 stop=L
 h=(stop-start)/N

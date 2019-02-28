@@ -4,11 +4,11 @@ from matplotlib import cm
 import numpy as np
 
 # make 1D x and y arrays
-Nx=100
+Nx=50
 a=-5
 b=5
 x, hx=np.linspace(a,b,Nx,retstep=True)
-Ny=100
+Ny=50
 c=-5
 d=5
 y, hy=np.linspace(c,d,Ny,retstep=True)
@@ -44,7 +44,7 @@ Z[:,0]=0#this sets a vertical row
     
 tfinal=10
 c=np.sqrt(sig/mu)
-tau=0.1*hx/c
+tau=.717*hx/c
 t=np.arange(0,tfinal,tau)
 skip=10
 
