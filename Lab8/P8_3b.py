@@ -11,7 +11,7 @@ stop=3*L
 hbar=1;
 m=1
 sig=2;
-p=-2*np.pi;
+p=2*np.pi;
 
 h=(stop-start)/N
 x,h=np.linspace(start,stop,N,retstep=True) 
@@ -32,12 +32,12 @@ E=p**2/(2*m)+hbar**2/(4*m*sig**2)
 A=np.zeros((N,N),dtype=np.complex)
 B=np.zeros((N,N),dtype=np.complex)
 V=np.zeros_like(x)
-V0=E*.1
+V0=E
 done=False
 n=0
 while True:
     n=n+1
-    if x[n]>=0.5*L:
+    if x[n]>=0.98*L:
         n1=n
         break
 while True:
@@ -102,9 +102,9 @@ while t<tmax:
 plt.clf()
 
 plt.plot(times,total)
-plt.plot(times,rightside,'r^')
-plt.plot(times,leftside,'g^')
-plt.plot(times,barrier,'b^')
+plt.plot(times,rightside,'r')
+plt.plot(times,leftside,'g')
+plt.plot(times,barrier,'b')
 
 plt.legend(["total prob","prob right","prob left","prob barrier"])
 plt.title('<x>')

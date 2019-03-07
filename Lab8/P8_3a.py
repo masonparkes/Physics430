@@ -11,7 +11,7 @@ stop=3*L
 hbar=1;
 m=1
 sig=2;
-p=-2*np.pi;
+p=2*np.pi;
 
 h=(stop-start)/N
 x,h=np.linspace(start,stop,N,retstep=True) 
@@ -80,7 +80,7 @@ while t<tmax:
         #plt.ylim([0, 1])
         plt.xlim([-2*L,3*L])
         plt.draw()
-        plt.pause(0.1)
+        plt.pause(0.01)
         print(np.trapz(np.abs(np.conjugate(psi)*psi)*h))
 plt.clf()
 
