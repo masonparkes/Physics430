@@ -2,6 +2,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 from matplotlib import cm
 import numpy as np
+import random as r
 # Make the grid
 xmin = -2
 xmax = 2
@@ -18,9 +19,15 @@ X,Y = np.meshgrid(x,y)
 V = 0.5*np.ones_like(X)
 
 Mask=np.ones_like(V)
-for j in range(int(Nx*3/10),int(Nx*7/10)):
-    for k in range(int(Ny*3/10),int(Ny*7/10)):
-        Mask[j,k]=0
+#for j in range(int(Nx*6/10),int(Nx*6.2/10)):
+#    for k in range(int(Ny*1/10),int(Ny*9/10)):
+#        Mask[j,k]=0
+#for j in range(int(Nx*1/10),int(Nx*3.6/10)):
+#    for k in range(int(Ny*8/10),int(Ny*9/10)):
+#        Mask[j,k]=0
+r.seed()
+for m in range(1,100):
+    Mask[int(r.random()*Nx),int(r.random()*Ny)]=0
 
 V0=1
 # Enforce boundary conditions
@@ -41,7 +48,7 @@ w=2/(1+np.sqrt(1-R**2))
 
 passes=0;
 ep=1
-V = 0*np.ones_like(X)
+V = 0.25*np.ones_like(X)
 # Enforce boundary conditions
 V[:,0] = -V0
 V[:,-1] = V0
