@@ -30,7 +30,7 @@ Vscale=1
 R=(hy2*np.cos(np.pi/Nx)+hx2*np.cos(np.pi/Ny))/(hx2+hy2)
 w=2/(1+np.sqrt(1-R**2))
 Nw=100
-ws=np.linspace(1,2,Nw)
+ws=np.linspace(1.74,1.8,Nw)
 p=np.zeros_like(ws)
 for n in range(0,Nw):
     passes=0;
